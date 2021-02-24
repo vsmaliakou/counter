@@ -2,19 +2,24 @@ import React from "react"
 import './Board.css'
 import Screen from '../Screen/Screen'
 import Button from "../Button/Button";
+import SetScreen from "../SetScreen/SetScreen";
 
 type BoardType = {
     count: number
     maxCount: number
     incCount: () => void
     resetCount: () => void
+    error1: boolean
+    error2: boolean
 }
 
 const Board = (props: BoardType) => {
     return (
         <div className="board">
             <Screen count={props.count}
-                    maxCount={props.maxCount}/>
+                    maxCount={props.maxCount}
+                    error1={props.error1}
+                    error2={props.error2}/>
             <Button className="buttonInc"
                     title="inc"
                     changeCount={props.incCount}
@@ -22,7 +27,7 @@ const Board = (props: BoardType) => {
             <Button className="buttonRes"
                     title="reset"
                     changeCount={props.resetCount}
-                    disabled={props.count < props.maxCount}/>
+                    disabled={false}/>
         </div>
     )
 }
