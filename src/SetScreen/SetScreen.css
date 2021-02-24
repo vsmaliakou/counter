@@ -1,0 +1,28 @@
+.setScreen {
+    background-color: aqua;
+    border: aqua 2px solid;
+    border-radius: 10px;
+    height: 150px;
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    top: 10px;
+}
+
+.startText {
+    font-size: 25px;
+    font-weight: bold;
+    color: #282c34;
+    position: absolute;
+    top: 35px;
+    left: 10px;
+}
+
+.maxText {
+    font-size: 25px;
+    font-weight: bold;
+    color: #282c34;
+    position: absolute;
+    bottom: 35px;
+    left: 10px;
+}

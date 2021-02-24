@@ -4,7 +4,6 @@ import './Button.css'
 type ButttonType = {
     className: string
     title: string
-    count: number
     changeCount: () => void
     disabled:boolean
 }

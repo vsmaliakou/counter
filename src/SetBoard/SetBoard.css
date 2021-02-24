@@ -1,9 +1,9 @@
-.board {
+.setBoard {
     border: aqua 2px solid;
     border-radius: 10px;
     width: 400px;
     height: 300px;
     position: absolute;
-    left: 250px;
+    right: 250px;
     top: 150px;
 }
