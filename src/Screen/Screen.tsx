@@ -1,4 +1,5 @@
 import React from "react";
+import './Screen.css'
 
 type ScreenType = {
     count: number

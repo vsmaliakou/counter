@@ -1,0 +1,26 @@
+.screen {
+    background-color: aqua;
+    border: aqua 2px solid;
+    border-radius: 10px;
+    height: 150px;
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    top: 10px;
+}
+
+.span {
+    font-size: 100px;
+    font-weight: bold;
+    color: #282c34;
+    position: absolute;
+    left: 40%;
+}
+
+.span-red {
+    font-size: 100px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    left: 40%;
+}

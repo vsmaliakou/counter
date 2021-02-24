@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import Board from './Board';
+import Board from './Board/Board';
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
             <Board count={count}
                    incCount={incCount}
                    resetCount={resetCount}/>
+            {/*<SetBoard/>*/}
         </div>
     );
 }
