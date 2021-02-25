@@ -5,6 +5,9 @@ import Button from "../Button/Button";
 
 type SetBoardType = {
     setCounts: () => void
+    setLS: () => void
+    getLS: () => void
+    clearLS: () => void
     onChangeCount: (newCount: number) => void
     onChangeMaxCount: (newMaxCount: number) => void
     error1: boolean
@@ -26,6 +29,18 @@ const SetBoard = (props: SetBoardType) => {
             <Button className="buttonSet"
                     title="set"
                     changeCount={props.setCounts}
+                    disabled={false}/>
+            <Button className="setLS"
+                    title="setLS"
+                    changeCount={props.setLS}
+                    disabled={false}/>
+            <Button className="getLS"
+                    title="getLS"
+                    changeCount={props.getLS}
+                    disabled={false}/>
+            <Button className="clearLS"
+                    title="clearLS"
+                    changeCount={props.clearLS}
                     disabled={false}/>
         </div>
     )

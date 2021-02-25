@@ -29,6 +29,27 @@ function App() {
         maxCount = newMaxCount
     }
 
+    const setLS = () => {
+        localStorage.setItem('counterMinValue', JSON.stringify(count))
+        localStorage.setItem('counterMaxValue', JSON.stringify(maxCount))
+    }
+    const getLS = () => {
+        let countString = localStorage.getItem('counterMinValue')
+        if(countString) {
+            let newCount = JSON.parse(countString)
+            setCount(newCount)
+        }
+        let maxCountString = localStorage.getItem('counterMaxValue')
+        if(maxCountString) {
+            let newMaxCount = JSON.parse(maxCountString)
+            setMaxCount(newMaxCount)
+        }
+    }
+    const clearLS = () => {
+        localStorage.clear()
+        setCount(0)
+    }
+
     return (
         <div className="App">
             <SetBoard setCounts={setCounts}
@@ -37,7 +58,10 @@ function App() {
                       error1={error1}
                       error2={error2}
                       setError1={setError1}
-                      setError2={setError2}/>
+                      setError2={setError2}
+                      setLS={setLS}
+                      getLS={getLS}
+                      clearLS={clearLS}/>
             <Board count={count}
                    maxCount={maxCount}
                    incCount={incCount}
