@@ -1,6 +1,6 @@
 import React from "react";
-import './SetScreen.css'
-import SetInput from "./SetInput";
+import s from './SetScreen.module.css'
+import SetInput from "./SetInput/SetInput";
 
 type SetScreenType = {
     minCount: number
@@ -14,14 +14,14 @@ type SetScreenType = {
 const SetScreen = (props: SetScreenType) => {
 
     return (
-        <div className="setScreen">
-            <SetInput className="startText"
+        <div className={s.setScreen}>
+            <SetInput className={s.startText}
                       title="start value:"
                       error={props.error}
                       value={props.minCount}
                       onChange={props.onChangeMinCount}
                       setError={props.setError}/>
-            <SetInput className="maxText"
+            <SetInput className={s.maxText}
                       title="max value:"
                       error={props.error}
                       value={props.maxCount}

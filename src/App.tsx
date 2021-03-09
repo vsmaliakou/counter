@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
+import s from './App.module.css';
 import Board from './Board/Board';
 import SetBoard from './SetBoard/SetBoard';
 
@@ -25,7 +25,6 @@ function App() {
             setMaxCount(newMaxCount)
         }
     }, [])
-
 
     const saveLocalStorage = () => {
         localStorage.setItem('counterMinValue', JSON.stringify(minCount))
@@ -56,23 +55,25 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <SetBoard minCount={minCount}
-                      maxCount={maxCount}
-                      setCounts={setCounts}
-                      onChangeMinCount={onChangeMinCount}
-                      onChangeMaxCount={onChangeMaxCount}
-                      error={error}
-                      setError={setError}
-                      isEditMode={isEditMode}
-            />
-            <Board count={count}
-                   maxCount={maxCount}
-                   incCount={incCount}
-                   resetCount={resetCount}
-                   error={error}
-                   isEditMode={isEditMode}
-            />
+        <div className={s.app}>
+            <div className={s.container}>
+                <SetBoard minCount={minCount}
+                          maxCount={maxCount}
+                          setCounts={setCounts}
+                          onChangeMinCount={onChangeMinCount}
+                          onChangeMaxCount={onChangeMaxCount}
+                          error={error}
+                          setError={setError}
+                          isEditMode={isEditMode}
+                />
+                <Board count={count}
+                       maxCount={maxCount}
+                       incCount={incCount}
+                       resetCount={resetCount}
+                       error={error}
+                       isEditMode={isEditMode}
+                />
+            </div>
         </div>
     );
 }

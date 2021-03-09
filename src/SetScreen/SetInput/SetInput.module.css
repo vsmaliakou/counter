@@ -1,0 +1,18 @@
+.input {
+    outline: none;
+    border: aqua 2px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.error {
+    outline: none;
+    background-color: tomato;
+    border: red 3px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 40px;
+}

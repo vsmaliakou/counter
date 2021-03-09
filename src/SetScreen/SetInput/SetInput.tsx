@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from "react";
+import s from './SetInput.module.css'
 
 type InputType = {
     value: number
@@ -24,7 +25,7 @@ const SetInput = (props: InputType) => {
     return (
         <div className={props.className}>
             {props.title}
-            <input className={props.error ? "error" : "input"} type="number" value={props.value} onChange={onChange}/>
+            <input className={props.error ? s.error : s.input} type="number" value={props.value} onChange={onChange}/>
         </div>
     )
 }

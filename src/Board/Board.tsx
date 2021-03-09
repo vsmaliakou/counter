@@ -1,8 +1,8 @@
 import React from "react"
-import './Board.css'
+import s from './Board.module.css'
+import b from '../Button/Button.module.css'
 import Screen from '../Screen/Screen'
 import Button from "../Button/Button";
-import SetScreen from "../SetScreen/SetScreen";
 
 type BoardType = {
     count: number
@@ -15,19 +15,21 @@ type BoardType = {
 
 const Board = (props: BoardType) => {
     return (
-        <div className="board">
+        <div className={s.board}>
             <Screen count={props.count}
                     maxCount={props.maxCount}
                     error={props.error}
             />
-            <Button className="buttonInc"
-                    title="inc"
-                    changeCount={props.incCount}
-                    disabled={props.isEditMode || props.count === props.maxCount}/>
-            <Button className="buttonRes"
-                    title="reset"
-                    changeCount={props.resetCount}
-                    disabled={props.isEditMode}/>
+            <div className={s.buttonContainer}>
+                <Button className={b.buttonInc}
+                        title="inc"
+                        changeCount={props.incCount}
+                        disabled={props.isEditMode || props.count === props.maxCount}/>
+                <Button className={b.buttonRes}
+                        title="reset"
+                        changeCount={props.resetCount}
+                        disabled={props.isEditMode}/>
+            </div>
         </div>
     )
 }

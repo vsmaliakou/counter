@@ -1,0 +1,23 @@
+.setScreen {
+    background-color: #282c34;
+    border: aqua 2px solid;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 380px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.startText {
+    font-size: 25px;
+    font-weight: bold;
+    color: aqua;
+}
+
+.maxText {
+    font-size: 25px;
+    font-weight: bold;
+    color: aqua;
+}

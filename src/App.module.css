@@ -1,0 +1,13 @@
+.app {
+    height: 100vh;
+    background-color: #282c34;
+}
+.container {
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

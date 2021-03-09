@@ -1,5 +1,6 @@
 import React from "react"
-import './SetBoard.css'
+import s from'./SetBoard.module.css'
+import b from '../Button/Button.module.css'
 import SetScreen from '../SetScreen/SetScreen'
 import Button from "../Button/Button";
 
@@ -17,7 +18,7 @@ type SetBoardType = {
 const SetBoard = (props: SetBoardType) => {
 
     return (
-        <div className="setBoard">
+        <div className={s.setBoard}>
             <SetScreen onChangeMinCount={props.onChangeMinCount}
                        onChangeMaxCount={props.onChangeMaxCount}
                        error={props.error}
@@ -25,10 +26,12 @@ const SetBoard = (props: SetBoardType) => {
                        minCount={props.minCount}
                        setError={props.setError}
             />
-            <Button className="buttonSet"
-                    title="set"
-                    changeCount={props.setCounts}
-                    disabled={!props.isEditMode}/>
+            <div className={s.setButtonContainer}>
+                <Button className={b.buttonSet}
+                        title="set"
+                        changeCount={props.setCounts}
+                        disabled={!props.isEditMode}/>
+            </div>
         </div>
     )
 }

@@ -2,9 +2,6 @@
     border-radius: 10px;
     width: 185px;
     height: 55px;
-    position: absolute;
-    left: 10px;
-    top: 170px;
     font-size: 40px;
     font-weight: bold;
     color: #282c34;
@@ -13,10 +10,6 @@
 .buttonRes {
     border-radius: 10px;
     width: 185px;
-    height: 55px;
-    position: absolute;
-    right: 10px;
-    top: 170px;
     font-size: 40px;
     font-weight: bold;
     color: #282c34;
@@ -24,11 +17,8 @@
 
 .buttonSet {
     border-radius: 10px;
-    width: 380px;
+    width: 100%;
     height: 55px;
-    position: absolute;
-    left: 10px;
-    top: 170px;
     font-size: 40px;
     font-weight: bold;
     color: #282c34;

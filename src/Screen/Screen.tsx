@@ -1,5 +1,5 @@
 import React from "react";
-import './Screen.css'
+import s from './Screen.module.css'
 
 type ScreenType = {
     count: number
@@ -10,8 +10,8 @@ type ScreenType = {
 const Screen = (props: ScreenType) => {
 
     return (
-        <div className="screen">
-            <span className={props.count !== props.maxCount ? "span" : "span-red"}>{props.error ? "error" : props.count}</span>
+        <div className={s.screen}>
+            <span className={props.count !== props.maxCount ? s.span : s.spanRed}>{props.error ? "error" : props.count}</span>
         </div>
     )
 }
