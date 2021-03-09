@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from "react";
 
 type InputType = {
+    value: number
     className: string
     title: string
     error: boolean
@@ -11,9 +12,9 @@ type InputType = {
 const SetInput = (props: InputType) => {
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        let minCount = Number(e.currentTarget.value)
-        if(minCount >= 0) {
-            props.onChange(minCount)
+        let count = Number(e.currentTarget.value)
+        if(count >= 0) {
+            props.onChange(count)
             props.setError(false)
         } else {
             props.setError(true)
@@ -23,7 +24,7 @@ const SetInput = (props: InputType) => {
     return (
         <div className={props.className}>
             {props.title}
-            <input className={props.error ? "error" : "input"} type="number" onChange={onChange}/>
+            <input className={props.error ? "error" : "input"} type="number" value={props.value} onChange={onChange}/>
         </div>
     )
 }

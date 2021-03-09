@@ -1,73 +1,78 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Board from './Board/Board';
 import SetBoard from './SetBoard/SetBoard';
 
 function App() {
 
-    let [count, setCount] = useState<number>(0)
+    let [minCount, setMinCount] = useState<number>(0)
     let [maxCount, setMaxCount] = useState<number>(5)
+    let [count, setCount] = useState<number>(minCount)
 
-    let [error1, setError1] = useState<boolean>(false)
-    let [error2, setError2] = useState<boolean>(false)
+    let [error, setError] = useState<boolean>(false)
 
-    const incCount = () => {
-        setCount(count + 1)
-    }
-    const resetCount = () => {
-        setCount(0)
-    }
+    let [isEditMode, setIsEditMode] = useState<boolean>(false)
 
-    const setCounts = () => {
-        setCount(count)
-        setMaxCount(maxCount)
-    }
-    const onChangeCount = (newCount: number) => {
-        count = newCount
-    }
-    const onChangeMaxCount = (newMaxCount: number) => {
-        maxCount = newMaxCount
-    }
-
-    const setLS = () => {
-        localStorage.setItem('counterMinValue', JSON.stringify(count))
-        localStorage.setItem('counterMaxValue', JSON.stringify(maxCount))
-    }
-    const getLS = () => {
-        let countString = localStorage.getItem('counterMinValue')
-        if(countString) {
-            let newCount = JSON.parse(countString)
-            setCount(newCount)
+    useEffect(() => {
+        let minCountString = localStorage.getItem('counterMinValue')
+        if(minCountString) {
+            let newMinCount = JSON.parse(minCountString)
+            setMinCount(newMinCount)
         }
         let maxCountString = localStorage.getItem('counterMaxValue')
         if(maxCountString) {
             let newMaxCount = JSON.parse(maxCountString)
             setMaxCount(newMaxCount)
         }
+    }, [])
+
+
+    const saveLocalStorage = () => {
+        localStorage.setItem('counterMinValue', JSON.stringify(minCount))
+        localStorage.setItem('counterMaxValue', JSON.stringify(maxCount))
     }
-    const clearLS = () => {
-        localStorage.clear()
-        setCount(0)
+
+    const incCount = () => {
+        setCount(count + 1)
+    }
+    const resetCount = () => {
+        setCount(minCount)
+    }
+
+    const setCounts = () => {
+        setIsEditMode(false)
+        setMinCount(minCount)
+        setMaxCount(maxCount)
+        setCount(minCount)
+        saveLocalStorage()
+    }
+    const onChangeMinCount = (newMinCount: number) => {
+        setIsEditMode(true)
+        setMinCount(newMinCount)
+    }
+    const onChangeMaxCount = (newMaxCount: number) => {
+        setIsEditMode(true)
+        setMaxCount(newMaxCount)
     }
 
     return (
         <div className="App">
-            <SetBoard setCounts={setCounts}
-                      onChangeCount={onChangeCount}
+            <SetBoard minCount={minCount}
+                      maxCount={maxCount}
+                      setCounts={setCounts}
+                      onChangeMinCount={onChangeMinCount}
                       onChangeMaxCount={onChangeMaxCount}
-                      error1={error1}
-                      error2={error2}
-                      setError1={setError1}
-                      setError2={setError2}
-                      setLS={setLS}
-                      getLS={getLS}
-                      clearLS={clearLS}/>
+                      error={error}
+                      setError={setError}
+                      isEditMode={isEditMode}
+            />
             <Board count={count}
                    maxCount={maxCount}
                    incCount={incCount}
                    resetCount={resetCount}
-                   error1={error1}
-                   error2={error2}/>
+                   error={error}
+                   isEditMode={isEditMode}
+            />
         </div>
     );
 }

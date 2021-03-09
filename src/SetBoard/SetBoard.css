@@ -7,39 +7,3 @@
     left: 250px;
     top: 150px;
 }
-
-.setLS {
-    border-radius: 10px;
-    width: 120px;
-    height: 55px;
-    position: absolute;
-    left: 10px;
-    top: 235px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #282c34;
-}
-
-.getLS {
-    border-radius: 10px;
-    width: 120px;
-    height: 55px;
-    position: absolute;
-    left: 140px;
-    top: 235px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #282c34;
-}
-
-.clearLS {
-    border-radius: 10px;
-    width: 120px;
-    height: 55px;
-    position: absolute;
-    right: 10px;
-    top: 235px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #282c34;
-}

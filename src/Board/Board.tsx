@@ -9,8 +9,8 @@ type BoardType = {
     maxCount: number
     incCount: () => void
     resetCount: () => void
-    error1: boolean
-    error2: boolean
+    error: boolean
+    isEditMode: boolean
 }
 
 const Board = (props: BoardType) => {
@@ -18,16 +18,16 @@ const Board = (props: BoardType) => {
         <div className="board">
             <Screen count={props.count}
                     maxCount={props.maxCount}
-                    error1={props.error1}
-                    error2={props.error2}/>
+                    error={props.error}
+            />
             <Button className="buttonInc"
                     title="inc"
                     changeCount={props.incCount}
-                    disabled={props.count === props.maxCount}/>
+                    disabled={props.isEditMode || props.count === props.maxCount}/>
             <Button className="buttonRes"
                     title="reset"
                     changeCount={props.resetCount}
-                    disabled={false}/>
+                    disabled={props.isEditMode}/>
         </div>
     )
 }
