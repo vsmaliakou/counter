@@ -8,15 +8,23 @@
     justify-content: center;
     align-items: center;
 }
-
 .span {
-    font-size: 100px;
+    font-size: 70px;
     font-weight: bold;
     color: aqua;
 }
-
 .spanRed {
-    font-size: 100px;
+    font-size: 70px;
     font-weight: bold;
     color: red;
+}
+.redText {
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
+}
+.setText {
+    font-size: 25px;
+    font-weight: bold;
+    color: aqua;
 }

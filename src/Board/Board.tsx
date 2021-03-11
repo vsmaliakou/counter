@@ -19,6 +19,7 @@ const Board = (props: BoardType) => {
             <Screen count={props.count}
                     maxCount={props.maxCount}
                     error={props.error}
+                    isEditMode={props.isEditMode}
             />
             <div className={s.buttonContainer}>
                 <Button className={b.buttonInc}

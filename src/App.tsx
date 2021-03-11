@@ -25,7 +25,6 @@ function App() {
             setMaxCount(newMaxCount)
         }
     }, [])
-
     const saveLocalStorage = () => {
         localStorage.setItem('counterMinValue', JSON.stringify(minCount))
         localStorage.setItem('counterMaxValue', JSON.stringify(maxCount))
@@ -39,11 +38,15 @@ function App() {
     }
 
     const setCounts = () => {
-        setIsEditMode(false)
-        setMinCount(minCount)
-        setMaxCount(maxCount)
-        setCount(minCount)
-        saveLocalStorage()
+        if(minCount < maxCount) {
+            setIsEditMode(false)
+            setMinCount(minCount)
+            setMaxCount(maxCount)
+            setCount(minCount)
+            saveLocalStorage()
+        } else {
+            setError(true)
+        }
     }
     const onChangeMinCount = (newMinCount: number) => {
         setIsEditMode(true)
