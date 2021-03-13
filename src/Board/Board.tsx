@@ -3,9 +3,11 @@ import s from './Board.module.css'
 import b from '../Button/Button.module.css'
 import Screen from '../Screen/Screen'
 import Button from "../Button/Button";
+import {useSelector} from "react-redux";
+import {AppStateType} from "../store";
 
 type BoardType = {
-    count: number
+    minCount: number
     maxCount: number
     incCount: () => void
     resetCount: () => void
@@ -14,9 +16,13 @@ type BoardType = {
 }
 
 const Board = (props: BoardType) => {
+
+    const count = useSelector<AppStateType, number>(state => state.counter.count)
+
     return (
         <div className={s.board}>
-            <Screen count={props.count}
+            <Screen count={count}
+                    minCount={props.minCount}
                     maxCount={props.maxCount}
                     error={props.error}
                     isEditMode={props.isEditMode}
@@ -25,11 +31,13 @@ const Board = (props: BoardType) => {
                 <Button className={b.buttonInc}
                         title="inc"
                         changeCount={props.incCount}
-                        disabled={props.isEditMode || props.count === props.maxCount}/>
+                        disabled={props.isEditMode || count === props.maxCount}
+                />
                 <Button className={b.buttonRes}
                         title="reset"
                         changeCount={props.resetCount}
-                        disabled={props.isEditMode}/>
+                        disabled={props.isEditMode}
+                />
             </div>
         </div>
     )

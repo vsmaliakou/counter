@@ -5,28 +5,25 @@ import SetInput from "./SetInput/SetInput";
 type SetScreenType = {
     minCount: number
     maxCount: number
-    onChangeMinCount: (newMinCount: number) => void
-    onChangeMaxCount: (newMaxCount: number) => void
+    changeMinCount: (newMinCount: number) => void
+    changeMaxCount: (newMaxCount: number) => void
     error: boolean
-    setError: (a:boolean) => void
 }
 
 const SetScreen = (props: SetScreenType) => {
-
     return (
         <div className={s.setScreen}>
             <SetInput className={s.startText}
                       title="start value:"
-                      error={props.error}
                       value={props.minCount}
-                      onChange={props.onChangeMinCount}
-                      setError={props.setError}/>
+                      onChange={props.changeMinCount}
+                      error={props.error}
+            />
             <SetInput className={s.maxText}
                       title="max value:"
-                      error={props.error}
                       value={props.maxCount}
-                      onChange={props.onChangeMaxCount}
-                      setError={props.setError}
+                      onChange={props.changeMaxCount}
+                      error={props.error}
             />
         </div>
     )

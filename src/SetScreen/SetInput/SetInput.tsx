@@ -2,23 +2,21 @@ import React, {ChangeEvent} from "react";
 import s from './SetInput.module.css'
 
 type InputType = {
-    value: number
     className: string
     title: string
-    error: boolean
+    value: number
     onChange: (count: number) => void
-    setError: (a:boolean) => void
+    error: boolean
 }
 
 const SetInput = (props: InputType) => {
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         let count = Number(e.currentTarget.value)
-        if(count >= 0) {
+        if (count >= 0) {
             props.onChange(count)
-            props.setError(false)
         } else {
-            props.setError(true)
+            props.onChange(count)
         }
     }
 
